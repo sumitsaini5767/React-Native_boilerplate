@@ -17,7 +17,7 @@ const Stack = createNativeStackNavigator<MainStackParamList>();
 
 
 const Routes = () => {
-const [token, setToken] = useState<boolean>(true);
+const [token, setToken] = useState<boolean>(false);
 
     return (
         <NavigationContainer>
