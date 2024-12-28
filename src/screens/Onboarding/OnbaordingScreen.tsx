@@ -202,14 +202,14 @@ const styles = StyleSheet.create({
   },
   nextButton: {
     position:'absolute',
-    right:20,
-    top: -6
+    right:22,
+    top: -12
   },
   nextButtonText: {
     width: "100%",
     color: '#FF4B55',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 18,
+    fontWeight: '500',
   },
   bottomSection: {
     paddingBottom:"6%",
