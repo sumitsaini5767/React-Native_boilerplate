@@ -1,3 +1,4 @@
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import React, { useState, useRef } from 'react';
 import {
   View,
@@ -10,6 +11,10 @@ import {
 } from 'react-native';
 
 const { width } = Dimensions.get('window');
+
+type MainStackParamList = {
+  Login: undefined;
+};
 
 interface OnboardingItem {
   id: string;
@@ -42,6 +47,7 @@ const onboardingData: OnboardingItem[] = [
 const OnboardingScreen: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
+  const navigation = useNavigation<NavigationProp<MainStackParamList>>();
 
   const renderItem = ({ item }: { item: OnboardingItem }) => (
     <View style={styles.slide}>
@@ -71,10 +77,10 @@ const OnboardingScreen: React.FC = () => {
         index: currentIndex + 1,
         animated: true,
       });
-      setCurrentIndex(currentIndex + 1);
+      // setCurrentIndex(currentIndex + 1);
     } else {
       // Handle onboarding completion
-      console.log('Onboarding completed');
+      navigation.navigate('Login');
     }
   };
 
@@ -89,7 +95,7 @@ const OnboardingScreen: React.FC = () => {
       index: onboardingData.length - 1,
       animated: true,
     });
-    setCurrentIndex(onboardingData.length - 1);
+    // setCurrentIndex(onboardingData.length - 1);
   };
 
   return (
@@ -149,7 +155,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingTop: 40,
+    paddingTop: 30,
   },
   pageIndicator: {
     fontSize: 16,
@@ -160,6 +166,7 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   slide: {
+    marginTop:80,
     width,
     alignItems: 'center',
     padding: 20,
