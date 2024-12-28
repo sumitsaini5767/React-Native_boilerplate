@@ -21,7 +21,7 @@ const [token, setToken] = useState<boolean>(false);
 
     return (
         <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator screenOptions={{ headerShown: false }}>
                 {
                     token? MainStack() : AuthStack()
 
